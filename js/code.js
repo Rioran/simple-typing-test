@@ -54,7 +54,7 @@ function update_next_chars() {
 }
 
 function calculate_stats() {
-    typing_inaccuracy = typing_errors / full_text_pointer;
+    typing_inaccuracy = Math.round(typing_errors / full_text_pointer * 1000) / 10;
 
     typing_finish = Date.now();
     typing_time = Math.round((typing_finish - typing_start) / 10, 2) / 100;  // to seconds
