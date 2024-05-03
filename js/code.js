@@ -5,7 +5,7 @@ const NEXT_CHARS_LIMIT = 20;
 let repeats_number = 5;
 const repeats_number_input = document.getElementById('repeats_number');
 
-let main_user_text = '123 123'; // Ֆիզիկոս Մկրտիչը օճառաջուր ցողելով բժշկում է գնդապետ Հայկի փքված ձախ թևը:
+let main_user_text = 'Ֆիզիկոս Մկրտիչը օճառաջուր ցողելով բժշկում է գնդապետ Հայկի փքված ձախ թևը:'; // Ֆիզիկոս Մկրտիչը օճառաջուր ցողելով բժշկում է գնդապետ Հայկի փքված ձախ թևը:
 const main_user_text_input = document.getElementById('main_user_text');
 let full_text = '';
 let full_text_pointer = 0;
@@ -54,14 +54,22 @@ function update_next_chars() {
 }
 
 function calculate_stats() {
-    typing_time = typing_finish - typing_start;
     typing_inaccuracy = typing_errors / full_text_pointer;
-    characters_per_minute = full_text_pointer / typing_time * 60;
 
-    stat_results_div.innerHTML = 'RESULT!';
+    typing_finish = Date.now();
+    typing_time = Math.round((typing_finish - typing_start) / 10, 2) / 100;  // to seconds
+    characters_per_minute = Math.round(full_text_pointer / typing_time * 100 * 60) / 100;
+
+    stat_results_div.innerHTML = 'Errors: ' + typing_errors + ' (' + typing_inaccuracy + '%), CPM speed: ' +
+        characters_per_minute + ', time: ' + typing_time + ' sec., ' + full_text_pointer + ' chars';
 }
 
 function process_user_char(user_char) {
+    if (full_text_pointer == 0) {
+        if (typing_errors == 0) {
+            typing_start = Date.now();
+        }
+    }
     if (user_char !== full_text.substr(full_text_pointer, 1)) {
         typing_errors += 1;
         return;
