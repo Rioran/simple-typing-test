@@ -5,7 +5,7 @@ const NEXT_CHARS_LIMIT = 20;
 let repeats_number = 5;
 const repeats_number_input = document.getElementById('repeats_number');
 
-let main_user_text = 'Ֆիզիկոս Մկրտիչը օճառաջուր ցողելով բժշկում է գնդապետ Հայկի փքված ձախ թևը:'; // Ֆիզիկոս Մկրտիչը օճառաջուր ցողելով բժշկում է գնդապետ Հայկի փքված ձախ թևը:
+let main_user_text = 'Ֆիզիկոս Մկրտիչը օճառաջուր ցողելով բժշկում է գնդապետ Հայկի փքված ձախ թևը։'; // Ֆիզիկոս Մկրտիչը օճառաջուր ցողելով բժշկում է գնդապետ Հայկի փքված ձախ թևը:
 const main_user_text_input = document.getElementById('main_user_text');
 let full_text = '';
 let full_text_pointer = 0;
