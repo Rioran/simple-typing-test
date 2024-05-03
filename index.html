@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,15 +18,36 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet">
 </head>
-<body>
+<body onload="entry_point();">
     <div class='container-fluid min-vh-50 d-flex flex-column'>
         <div class='row-md p-1 text-center'>
             <h1>Rio Typing Test</h1>
-            <div class='row-md align-items-center justify-content-center'>
-                <textarea class="m-3 col center" type="text" id="main_user_text" name="main_user_text" style="height: 30vh; width: 90%;" cols="100"
-                    >Ֆիզիկոս Մկրտիչը օճառաջուր ցողելով բժշկում է գնդապետ Հայկի փքված ձախ թևը:</textarea>
+            <p>Paste or type the text you want to roll, select the number of repeats and push da START button.</p>
+            <div class="container-fluid min-vh-50 d-flex flex-row text-center">
+                <button type="button" class="col btn btn-success m-1" onclick='window.location.reload();'>Reset</button>
+                <button type="button" class="col btn btn-success m-1" onclick='less_repeats();'>Less</button>
+                <input type="number" id="repeats_number" value="4" onchange="update_repeats_variable();" style="text-align:center;">
+                <button type="button" class="col btn btn-success m-1" onclick='more_repeats();'>More</button>
+                <button type="button" class="col btn btn-success m-1" onclick='start_game();'>Start</button>
             </div>
-            <div class="container-fluid min-vh-50 d-flex flex-column" id="buttons">Buttons are in development.</div>
+            <br>
+            <div class='row-md align-items-center justify-content-center'>
+                <textarea
+                        class='m-3 col center'
+                        type='text'
+                        id='main_user_text'
+                        name='main_user_text'
+                        style='height: 30vh; width: 90%;'
+                        cols='100'
+                        onchange='udpate_main_user_text()'
+                ></textarea>
+            </div>
+            <br>
+            <div class="container-fluid min-vh-50 d-flex flex-row text-center m-1">
+                <div class='col bg-secondary text-right' id='typed_chars'>What you typed.</div>
+                <div class='col-1 bg-danger'> </div>
+                <div class='col bg-light text-left' id='next_chars'>What you will type.</div>
+            </div>
             <div class="container-fluid min-vh-50 d-flex flex-column" id="stat_results">Play to see results.</div>
         </div>
     </div>
