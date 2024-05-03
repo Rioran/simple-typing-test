@@ -1,0 +1,8 @@
+html, body, div {
+    background-color: aquamarine;
+}
+
+.text-responsive {
+    font-size: 16px;
+    font-size: 12vw;
+}
