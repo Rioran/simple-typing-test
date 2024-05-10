@@ -6,7 +6,7 @@
 
     <title>Rio Typing Test</title>
     <meta name="description" content="Rio Typing Test.">
-    <meta name="author" content="Roman 'Rioran' Voronov">
+    <meta name="author" content="Roman "Rioran" Voronov">
 
     <meta property="og:title" content="Rio Typing Test">
     <meta property="og:type" content="website">
@@ -15,43 +15,34 @@
 
     <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet">
 </head>
 <body onload="entry_point();">
-    <div class='container-fluid min-vh-50 d-flex flex-column'>
-        <div class='row-md p-1 text-center'>
-            <h1>Rio Typing Test</h1>
-            <p>Paste or type the text you want to roll, select the number of repeats and push da START button.</p>
-            <div class="container-fluid min-vh-50 d-flex flex-row text-center">
-                <button type="button" class="col btn btn-success m-1" onclick='window.location.reload();'>Reset</button>
-                <button type="button" class="col btn btn-success m-1" onclick='less_repeats();'>Less</button>
-                <input type="number" id="repeats_number" value="4" onchange="update_repeats_variable();" style="text-align:center;">
-                <button type="button" class="col btn btn-success m-1" onclick='more_repeats();'>More</button>
-                <button type="button" class="col btn btn-success m-1" onclick='start_game();'>Start</button>
-            </div>
-            <br>
-            <div class='row-md align-items-center justify-content-center'>
-                <textarea
-                        class='m-3 col center'
-                        type='text'
-                        id='main_user_text'
-                        name='main_user_text'
-                        style='height: 30vh; width: 90%;'
-                        cols='100'
-                        onchange='udpate_main_user_text()'
-                ></textarea>
-            </div>
-            <div class="container-fluid min-vh-50 d-flex flex-row text-center m-1">
-                <div class='col-4 bg-secondary text-right' id='typed_chars'>What you typed.</div>
-                <div class='col-1 bg-danger'> </div>
-                <div class='col-7 bg-light text-left' id='next_chars'>What you will type.</div>
-            </div>
-            <div class="container-fluid min-vh-50 d-flex flex-column" id="stat_results">Play to see results.</div>
-        </div>
-    </div>
+    <h1>Rio Typing Test</h1>
+    <p>Paste or type the text you want to roll, select the number of repeats and push da START button.</p>
+    <main>
+        <textarea
+            type="text"
+            class="long-sausage"
+            id="main_user_text"
+            name="main_user_text"
+            cols="100"
+            onchange="udpate_main_user_text()"
+        ></textarea>
+
+        <button type="button" class="short-sausage" id="less_button" onclick="less_repeats();">🤏🏻 Less</button>
+        <input type="number" class="short-sausage" id="repeats_number" name="repeats_number" value="5" onchange="update_repeats_variable();" style="text-align:center;">
+        <button type="button" class="short-sausage" id="more_button" onclick="more_repeats();">👆🏼 More</button>
+
+        <button type="button" class="medium-sausage" id="restart_button" onclick="window.location.reload();">🔄 Reset</button>
+        <button type="button" class="medium-sausage" id="start_button" onclick="start_game();">🚀 Start</button>
+
+        <div class="medium-sausage text-sausage user-typed" id="typed_chars">What you typed.</div>
+        <div class="medium-sausage text-sausage user-will-type" id="next_chars">What you will type.</div>
+
+        <div class="long-sausage text-sausage user-results" id="stat_results">Play to see results.</div>
+    </main>
 
     <script src="js/code.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

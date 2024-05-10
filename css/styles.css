@@ -1,8 +1,61 @@
-html, body, div {
+body {
     background-color: aquamarine;
+    font-size: 20px;
+    margin-left: max(16px, 5vw);
+    margin-right: max(16px, 5vw);
 }
 
-.text-responsive {
-    font-size: 16px;
-    font-size: 12vw;
+main {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 5px;
+}
+
+.short-sausage {
+    grid-column: span 2;
+}
+
+.medium-sausage {
+    grid-column: span 3;
+}
+
+.long-sausage {
+    grid-column: span 6;
+    align-content: center;
+}
+
+.short-sausage, .medium-sausage, .long-sausage {
+    min-height: 10vh;
+    font-size: 20px;
+}
+
+.text-sausage {
+    text-align: center;
+    align-content: center;
+}
+
+.user-typed {
+    background-color: gainsboro;
+}
+
+.user-will-type {
+    background-color: white;
+}
+
+.user-results {
+    background-color: lightgoldenrodyellow;
+}
+
+button {
+    background-color: #2ea44f;
+    border: 1px solid rgba(27, 31, 35, .15);
+    border-radius: 6px;
+    box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;  
+}
+
+textarea {
+    padding: 5%;
 }

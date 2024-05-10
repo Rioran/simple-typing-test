@@ -4,6 +4,10 @@ const NEXT_CHARS_LIMIT = 20;
 
 let repeats_number = 5;
 const repeats_number_input = document.getElementById('repeats_number');
+const less_number_button = document.getElementById('less_button');
+const more_number_button = document.getElementById('more_button');
+const start_button = document.getElementById('start_button');
+const restart_button = document.getElementById('restart_button');
 
 let main_user_text = 'Ֆիզիկոս Մկրտիչը օճառաջուր ցողելով բժշկում է գնդապետ Հայկի փքված ձախ թևը։'; // Ֆիզիկոս Մկրտիչը օճառաջուր ցողելով բժշկում է գնդապետ Հայկի փքված ձախ թևը:
 const main_user_text_input = document.getElementById('main_user_text');
@@ -92,6 +96,11 @@ function start_game() {
     is_game_on = true;
     full_text = repeat_text(main_user_text, repeats_number);
     main_user_text_input.style.display = 'none';
+    repeats_number_input.style.display = 'none';
+    less_number_button.style.display = 'none';
+    more_number_button.style.display = 'none';
+    start_button.style.display = 'none';
+    restart_button.style.gridColumn = 'span 6';
 
     next_chars = full_text.substr(full_text_pointer, NEXT_CHARS_LIMIT);
     next_chars_div.innerHTML = '_' + next_chars + '_';
