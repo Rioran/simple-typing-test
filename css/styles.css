@@ -59,3 +59,12 @@ button {
 textarea {
     padding: 5%;
 }
+
+header {
+    border-bottom: 1px solid black;
+}
+
+footer {
+    margin-top: max(16px, 5vh);
+    border-top: 1px solid black;
+}

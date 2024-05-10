@@ -15,11 +15,14 @@
     <meta property="og:description" content="Rio Typing Test">
 
     <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+    <meta http-equiv="Cache-control" content="max-age=31536000">
 
     <link href="css/styles.css" rel="stylesheet">
 </head>
 <body onload="entry_point();">
-    <h1>Rio Typing Test</h1>
+    <header>
+        <h1>Rio Typing Test</h1>
+    </header>
     <p>Paste or type the text you want to roll, select the number of repeats and push da START button.</p>
     <main>
         <textarea
@@ -43,6 +46,12 @@
 
         <div class="long-sausage text-sausage user-results" id="stat_results">Play to see results.</div>
     </main>
+
+    <footer>
+        <p>&copy; <a href="https://www.t.me/Rioran">Roman "Rioran" Voronov</a>, <script>
+            document.write(new Date().getFullYear())
+        </script></p>
+    </footer>
 
     <script src="js/code.js"></script>
 </body>
