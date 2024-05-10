@@ -31,15 +31,11 @@ const stat_results_div = document.getElementById('stat_results');
 let is_game_on = false;
 
 
-var repeat_text = function(text, count) {
-    var array = [];
-    for (var i = 0; i < count;) {
-        array[i++] = text;
-    }
-    return array.join(TEXT_SEPARATOR);
+const repeat_text = (text, count) => {
+    return Array(count).fill(text).join(TEXT_SEPARATOR);
 }
 
-function update_typed_chars(new_char) {
+function update_typed_chars() {
     var typed_pointer = full_text_pointer + 1 - TYPED_CHARS_LIMIT;
     if (typed_pointer < 0) {
         typed_pointer = 0;
@@ -47,13 +43,13 @@ function update_typed_chars(new_char) {
 
     var typed_len = full_text_pointer - typed_pointer + 1;
 
-    typed_chars = full_text.substr(typed_pointer, typed_len)
+    typed_chars = full_text.substring(typed_pointer, typed_pointer + typed_len)
     typed_chars_div.innerHTML = '_' + typed_chars + '_';
 }
 
 function update_next_chars() {
     full_text_pointer += 1;
-    next_chars = full_text.substr(full_text_pointer, NEXT_CHARS_LIMIT);
+    next_chars = full_text.substring(full_text_pointer, full_text_pointer + NEXT_CHARS_LIMIT);
     next_chars_div.innerHTML = '_' + next_chars + '_';
 }
 
@@ -74,11 +70,11 @@ function process_user_char(user_char) {
             typing_start = Date.now();
         }
     }
-    if (user_char !== full_text.substr(full_text_pointer, 1)) {
+    if (user_char !== full_text.substring(full_text_pointer, full_text_pointer + 1)) {
         typing_errors += 1;
         return;
     }
-    update_typed_chars(user_char);
+    update_typed_chars();
     update_next_chars();
     if (full_text_pointer == full_text.length) {
         is_game_on = false;
@@ -95,6 +91,7 @@ function process_keypress(key) {
 function start_game() {
     is_game_on = true;
     full_text = repeat_text(main_user_text, repeats_number);
+
     main_user_text_input.style.display = 'none';
     repeats_number_input.style.display = 'none';
     less_number_button.style.display = 'none';
@@ -102,7 +99,7 @@ function start_game() {
     start_button.style.display = 'none';
     restart_button.style.gridColumn = 'span 6';
 
-    next_chars = full_text.substr(full_text_pointer, NEXT_CHARS_LIMIT);
+    next_chars = full_text.substring(full_text_pointer, full_text_pointer + NEXT_CHARS_LIMIT);
     next_chars_div.innerHTML = '_' + next_chars + '_';
 }
 
@@ -133,10 +130,5 @@ function entry_point() {
     main_user_text_input.value = main_user_text;
     document.addEventListener('keypress', (event) => {
         process_keypress(event.key);
-        console.log('Key: <' + event.key + '>');
-        if (event.key == ' ') {
-            console.log(event);
-        }
-        console.log('Full text pointer: ' + full_text_pointer);
     })
 }
