@@ -104,6 +104,9 @@ function start_game() {
 }
 
 function less_repeats() {
+    if (repeats_number < 2) {
+        return;
+    }
     repeats_number -= 1;
     update_repeats_input();
 }
@@ -118,7 +121,7 @@ function update_repeats_input() {
 }
 
 function update_repeats_variable() {
-    repeats_number = repeats_number_input.value;
+    repeats_number = repeats_number_input.value - 0;
 }
 
 function udpate_main_user_text() {
